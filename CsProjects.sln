@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Part3", "Part3\Part3.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Part4", "Part4\Part4.csproj", "{4B30F707-6F2E-4A13-8A7A-33640E2F66CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees", "Employees\Employees.csproj", "{E7DD9F98-6693-42A3-B710-4AF9DB53CD53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees", "Employees\Employees.csproj", "{E7DD9F98-6693-42A3-B710-4AF9DB53CD53}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakesAdvanced", "CakesAdvanced\CakesAdvanced.csproj", "{AFABA59F-6F28-467B-87F4-0A37B8F79606}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E7DD9F98-6693-42A3-B710-4AF9DB53CD53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7DD9F98-6693-42A3-B710-4AF9DB53CD53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7DD9F98-6693-42A3-B710-4AF9DB53CD53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFABA59F-6F28-467B-87F4-0A37B8F79606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFABA59F-6F28-467B-87F4-0A37B8F79606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFABA59F-6F28-467B-87F4-0A37B8F79606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFABA59F-6F28-467B-87F4-0A37B8F79606}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{AA3D7947-6A23-4511-9C5E-7AF8C02A290F} = {C975B8E3-2BB8-4D38-96C7-AA27998DB95E}
 		{4B30F707-6F2E-4A13-8A7A-33640E2F66CE} = {C975B8E3-2BB8-4D38-96C7-AA27998DB95E}
 		{E7DD9F98-6693-42A3-B710-4AF9DB53CD53} = {58E29634-103F-462D-AB01-898AC0D905CF}
+		{AFABA59F-6F28-467B-87F4-0A37B8F79606} = {58E29634-103F-462D-AB01-898AC0D905CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF4406F7-5F21-44A5-B44B-1980BDA2C418}

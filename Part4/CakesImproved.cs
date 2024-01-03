@@ -10,13 +10,13 @@ namespace movsar_part4
 
             // Выбор режима
             string[] modes = { "1 - Выбор торта", "2 - Внести в прайс новый торт" };
-            int? mode = InputService.SelectMode(modes);
+            int? mode = InputService.GetOption(modes);
 
             switch (mode)
             {
                 case 1:
                     Console.WriteLine("Введите название торта: ");
-                    string? selectedName = Console.ReadLine();
+                    string? selectedName = InputService.GetString();
 
                     string contents = File.ReadAllText(PATH);
                     string[] entries = contents.Split("\r\n");
@@ -46,10 +46,10 @@ namespace movsar_part4
                     Console.WriteLine("Введите данные о торте");
 
                     Console.Write("Название торта: ");
-                    string? date = Console.ReadLine();
+                    string? date = InputService.GetString();
 
                     Console.WriteLine("Цена торта: ");
-                    string? price = Console.ReadLine();
+                    double? price = InputService.GetDouble();
 
                     try
                     {
