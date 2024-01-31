@@ -5,28 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Weather_Journal_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Label Content="Журнал о погоде" />
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        Title="Журнал погоды" Height="450" Width="800">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="1" Grid.Column="0">
-                <!--Элементы добавления новой записи-->
-            </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="1" Grid.Column="1">
-                <!--Существующие записи-->
-            </StackPanel>
-        </Grid>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <!--Элементы добавления новой записи-->
+            <Label  Content="Запись данных о погоде" />
+            <Label  Content="Дата" />
+            <TextBox x:Name="txtData" />
+            <Label  Content="Температура" />
+            <TextBox x:Name="txtTemperature" />
+            <Label  Content="Влажность" />
+            <TextBox x:Name="txtHumidity" />
+            <Label  Content="Описание погоды" />
+            <ComboBox x:Name="cmbDescription">
+                <ComboBoxItem Content="Солнечно" IsSelected="True"/>
+                <ComboBoxItem Content="Дождь"/>
+                <ComboBoxItem Content="Снег"/>
+                <ComboBoxItem Content="Облачно"/>
+            </ComboBox>
+            <Button x:Name="btnAddEntry" Content="Добавить запись" Click="btnAddEntry_Click"/>
+        </StackPanel>
 
-    </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+        <Label  Content="Данные о погоде" />
+            <!--Существующие записи-->
+        </StackPanel>
+    </Grid>
 </Window>
