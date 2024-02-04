@@ -1,11 +1,16 @@
-﻿
-namespace CakesAdvanced;
+﻿using CakesAdvanced.Models;
+using ConsoleUtils;
+using System.Text;
 
-class Program
+namespace CakesLibrary
 {
-    static void Main(string[] args)
+    internal class Program
     {
-        var store = new Store("Название");
-        store.Open();
+        static void Main(string[] args)
+        {
+            var store = new Store("Къаьхь Торт");
+            store.Open();
+        }
+
     }
 }

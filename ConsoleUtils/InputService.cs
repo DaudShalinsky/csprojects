@@ -1,27 +1,29 @@
-﻿namespace ConsoleUtils
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace ConsoleUtils
 {
-    public static class InputService
+    public class InputService
     {
-        const string DateFormat = "DD.mm.YYYY";
-
-        public static int? GetOption(string[] modeDescriptions)
+        public static char GetOption(string message, Dictionary<char, string> options)
         {
-            Console.WriteLine("Выберите режим: ");
+            Console.WriteLine(message);
 
-            foreach (var modeDescription in modeDescriptions)
+            foreach (var option in options)
             {
-                Console.WriteLine(modeDescription);
+                Console.WriteLine(option);
             }
 
             try
             {
                 // Пытаемся получить числовое значение
-                int? mode = Convert.ToInt32(Console.ReadLine());
+                ConsoleKeyInfo input = Console.ReadKey(true);
+                Console.Clear();
+                char mode = input.KeyChar;
 
-                if (mode < 0 || mode > modeDescriptions.Length)
+                if (!options.ContainsKey(mode) && mode != '\r')
                 {
                     // Если ошибка, запускаем текущий метод, заново
-                    return GetOption(modeDescriptions);
+                    return GetOption(message, options);
                 }
 
                 // Если код дошел сюда, возвращаем значение выбранного режима
@@ -30,7 +32,7 @@
             catch (Exception)
             {
                 // Если ошибка, запускаем текущий метод, заново
-                return GetOption(modeDescriptions);
+                return GetOption(message, options);
             }
         }
         public static DateTime? GetDate() // метод для ввода даты.
@@ -70,7 +72,5 @@
             }
             return result;
         }
-
     }
 }
-

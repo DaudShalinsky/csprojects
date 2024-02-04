@@ -9,8 +9,11 @@ namespace movsar_part4
             const string PATH = @"CakesPrice.txt";
 
             // Выбор режима
-            string[] modes = { "1 - Выбор торта", "2 - Внести в прайс новый торт" };
-            int? mode = InputService.GetOption(modes);
+            int? mode = InputService.GetOption("Выберите режим", new Dictionary<char, string>()
+            {
+                { '1', "Выбор торта" },
+                { '2', "Внести в прайс новый торт" }
+            });
 
             switch (mode)
             {
