@@ -33,12 +33,14 @@
                 <ComboBoxItem Content="Снег"/>
                 <ComboBoxItem Content="Облачно"/>
             </ComboBox>
-            <Button x:Name="btnAddEntry" Content="Добавить запись" Click="btnAddEntry_Click"/>
+            <Button x:Name="btnAddEntry" Content="Добавить запись" Click="btnAddEntry_Click"
+                    HorizontalAlignment="Right" VerticalAlignment="Stretch" Padding="10" Margin="1, 180, 10, 0"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
         <Label  Content="Данные о погоде" />
-            <!--Существующие записи-->
+            <TextBox TextWrapping="Wrap" Width="400" Height="408" TextChanged="txt_TextChanged"/>
+            
         </StackPanel>
     </Grid>
 </Window>

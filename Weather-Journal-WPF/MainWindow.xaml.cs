@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.ObjectModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -41,6 +42,13 @@ namespace Weather_Journal_WPF
                 return "Возникла непонятная ошибка";
             }
             return "Строка успешно добавлена в файл";
+        }
+
+
+
+        private void txt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
         }
     }
 }
