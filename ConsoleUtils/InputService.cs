@@ -37,12 +37,13 @@ namespace ConsoleUtils
         }
         public static DateTime? GetDate() // метод для ввода даты.
         {
+            Console.Write("Дата: ");
             string? rawDate = Console.ReadLine();
             DateTime date;
             bool dateOk = DateTime.TryParse(rawDate, out date);
             if (!dateOk)
             {
-                Console.WriteLine("Неверный ввод.");
+                return GetDate();
             }
             return date;
         }
@@ -71,6 +72,40 @@ namespace ConsoleUtils
                 Console.WriteLine("Неверный ввод.");
             }
             return result;
+        }
+
+
+        public static decimal GetTemperature()
+        {
+            Console.Write("Температура: ");
+            decimal temperature;
+
+            try
+            {
+                temperature = Convert.ToDecimal(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                return GetTemperature();
+            }
+            return temperature;
+        }
+
+        public static decimal GetHumidity()
+        {
+            Console.Write("Влажность: ");
+
+            decimal humidity;
+
+            try
+            {
+                humidity = Convert.ToDecimal(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                return GetHumidity();
+            }
+            return humidity;
         }
     }
 }

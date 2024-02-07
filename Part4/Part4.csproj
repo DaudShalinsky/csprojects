@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConsoleUtils\ConsoleUtils.csproj" />
+    <ProjectReference Include="..\JournalLibrary\JournalLibrary.csproj" />
   </ItemGroup>
 
 </Project>

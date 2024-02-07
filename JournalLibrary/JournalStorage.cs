@@ -1,34 +1,64 @@
 ﻿using JournalLibrary.Models;
-using System.Xml;
+using Newtonsoft.Json;
 
 namespace JournalLibrary
 {
 
-    internal class JournalStorage
+    public class JournalStorage
     {
         public List<JournalEntry> _allEntries = new List<JournalEntry>();
-        public void LoadEntrye(object JsonConvert)
+
+        public JournalStorage()
         {
-            if (File.Exists(Constants.PATH_INGREDIENTS))
+            LoadEntries();
+        }
+
+        public void AddJournalEntry(JournalEntry entry)
+        {
+            JournalEntry? existingJournalEntry = FindJournalEntryByDate(entry.Date);
+            if (existingJournalEntry != null)
             {
-                string serializedData = File.ReadAllText(Constants.PATH_INGREDIENTS);
-                List<JournalEntry> loadedEntries = JsonConvert. <List<JournalEntry>>(serializedData);
-
-                if (loadedEntries != null)
-                {
-                    _allEntries = loadedEntries;
-                }
+                throw new Exception("Запись с такой датой уже существует!");
             }
+            _allEntries.Add(entry);
+
+            SaveJournalEntries();
         }
 
-
-
-        private void SaveIngredients(object JsonConvert)
+        private JournalEntry? FindJournalEntryByDate(DateTime date)
         {
-            string serializedIngredients = JsonConvert.SerializeObject(_allEntries, Formatting.Indented);
-            File.WriteAllText(Constants.PATH_INGREDIENTS, serializedIngredients);
+            return _allEntries.Find(i => i.Date == date);
         }
 
+        private JournalEntry GetJournalEntryById(string id)
+        {
+            return _allEntries.First(i => i.Id == id);
+        }
+
+        public List<JournalEntry> GetAllJournalEntrys()
+        {
+            return _allEntries;
+        }
+        public void LoadEntries()
+        {
+            if (!File.Exists(Constants.PATH_JOURNAL_ENTRIES))
+            {
+                return;
+            }
+            string serializedData = File.ReadAllText(Constants.PATH_JOURNAL_ENTRIES);
+            List<JournalEntry> loadedEntries = JsonConvert.DeserializeObject<List<JournalEntry>>(serializedData)!;
+
+            if (loadedEntries == null)
+            {
+                return;
+            }
+            _allEntries = loadedEntries;
+        }
+        private void SaveJournalEntries()
+        {
+            string serializedJournalEntrys = JsonConvert.SerializeObject(_allEntries, Formatting.Indented);
+            File.WriteAllText(Constants.PATH_JOURNAL_ENTRIES, serializedJournalEntrys);
+        }
     }
 
 }

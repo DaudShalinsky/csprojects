@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace JournalLibrary.Models
 {
-    internal class JournalEntry
+    public class JournalEntry
     {
-        public DateTime date { get; set; }
-        public decimal temperature { get; set; }
-        public decimal humidity { get; set; }
-        public string? description { get; set; }
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public DateTime Date { get; set; }
+        public decimal Temperature { get; set; }
+        public decimal Humidity { get; set; }
+        public string? Description { get; set; }
     }
 }

@@ -8,6 +8,6 @@ namespace JournalLibrary
 {
     public static class Constants
     {
-        public const string PATH_INGREDIENTS = "WeatherEntries.json";
+        public const string PATH_JOURNAL_ENTRIES = "WeatherEntries.json";
     }
 }

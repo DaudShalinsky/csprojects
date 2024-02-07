@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakesAdvanced", "CakesAdvan
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{5F807037-2FAD-4FE6-98E1-A95C0449E1D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weather-Journal-WPF", "Weather-Journal-WPF\Weather-Journal-WPF.csproj", "{C8B63E7C-6170-4117-AA53-6BC343F59E6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherJournalWPF", "Weather-Journal-WPF\WeatherJournalWPF.csproj", "{C8B63E7C-6170-4117-AA53-6BC343F59E6E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakesWpf", "CakesWpf\CakesWpf.csproj", "{9D991A5F-9907-4977-B444-ABBE661477F8}"
 EndProject
@@ -32,9 +32,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JournalLibrary", "JournalLibrary\JournalLibrary.csproj", "{3225AA9A-5A64-4C5F-BD4C-ADE2598ECEDF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1C7E8CC3-B99F-4C20-A942-90DE2DDE6416}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

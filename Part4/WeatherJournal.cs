@@ -1,54 +1,13 @@
-﻿public class WeatherJournal
+﻿using ConsoleUtils;
+using JournalLibrary;
+using JournalLibrary.Models;
+
+public class WeatherJournal
 {
     const string PATH = @"Weather.txt";
     const string DATE_FORMAT = "dd.MM.yyyy";
 
-    private static DateTime GetDate()
-    {
-        Console.Write("Дата: ");
-        string? rawDate = Console.ReadLine();
-        DateTime date;
-        bool dateOk = DateTime.TryParse(rawDate, out date);
 
-        if (dateOk == false)
-        {
-            return GetDate();
-        }
-        return date;
-    }
-
-    private static decimal GetTemperature()
-    {
-        Console.Write("Температура: ");
-        decimal temperature;
-
-        try
-        {
-            temperature = Convert.ToDecimal(Console.ReadLine());
-        }
-        catch (Exception)
-        {
-            return GetTemperature();
-        }
-        return temperature;
-    }
-
-    private static decimal GetHumidity()
-    {
-        Console.Write("Влажность: ");
-
-        decimal humidity;
-
-        try
-        {
-            humidity = Convert.ToDecimal(Console.ReadLine());
-        }
-        catch (Exception)
-        {
-            return GetHumidity();
-        }
-        return humidity;
-    }
 
     private static int? SelectMode()
     {
@@ -103,6 +62,7 @@
     }
     public static void Start()
     {
+        JournalStorage journalStorage = new JournalStorage();
         // Выбор режима
         int? mode = SelectMode();
 
@@ -152,30 +112,29 @@
             case 2:
                 Console.WriteLine("Введите информацию о погоде:");
 
-                DateTime date = GetDate();
-
-                decimal temperature = GetTemperature();
-
-                decimal humidity = GetHumidity();
-
+                DateTime date = (DateTime)InputService.GetDate()!;
+                decimal temperature = InputService.GetTemperature();
+                decimal humidity = InputService.GetHumidity();
                 string description = GetDiscription();
+
+                JournalEntry newEntry = new JournalEntry()
+                {
+                    Date = date,
+                    Description = description,
+                    Humidity = humidity,
+                    Temperature = temperature,
+                };
 
                 try
                 {
-                    File.AppendAllText(PATH, $"{date.ToString(DATE_FORMAT)} {temperature} {humidity} {description}\r\n");
+                    journalStorage.AddJournalEntry(newEntry);
+                    Console.WriteLine("Строка успешно добавлена в файл");
                 }
-                catch (UnauthorizedAccessException)
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Нет доступа к указанному пути");
-                    return;
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Возникла непонятная ошибка");
-                    return;
+                    Console.WriteLine(ex.Message);
                 }
 
-                Console.WriteLine("Строка успешно добавлена в файл");
                 Console.ReadKey();
                 Start();
 
